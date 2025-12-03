@@ -26,7 +26,7 @@ def partOne(file):
     return sum(maxes)
 
 def partOneSimplified(file):
-    maxes = []
+    total = 0
 
     with open(file) as f:
         for bank in f:
@@ -41,11 +41,9 @@ def partOneSimplified(file):
                 elif int(v) > rightDigit: # left digit no change, check right digit for bigger
                     rightDigit = int(v)
                     
-            
-            
-            maxes.append(leftDigit*10 + rightDigit)
+            total += leftDigit*10 + rightDigit
     
-    return sum(maxes)
+    return total
 
 print(partOne("input.txt"))
 print(partOneSimplified("input.txt"))

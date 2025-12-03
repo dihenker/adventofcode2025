@@ -5,14 +5,14 @@
 # ensures we have remaining digits and we preserver order
 
 def partTwo(file):
-    sum = 0
+    total = 0
 
     with open(file) as f:
         for bank in f:
             bank = bank.strip() # get rid of newline
             bankLen = len(bank)
 
-            currentSum = 0
+            currentTotal = 0
             prevMaxDigitIndex = 0
             for d in range(12):
                 d = 11 - d # reverse from 11 to 0
@@ -27,10 +27,10 @@ def partTwo(file):
                         maxDigit = batteryInt
                         prevMaxDigitIndex = i + 1 # plus 1 for start of sublist for next digit search
                 
-                currentSum = currentSum * 10 + maxDigit
-            sum += currentSum
+                currentTotal = currentTotal * 10 + maxDigit
+            total += currentTotal
     
-    return sum
+    return total
 
 
 print(partTwo("input.txt"))
