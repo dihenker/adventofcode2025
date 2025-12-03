@@ -5,8 +5,6 @@ def partOne(file):
     with open(file) as f:
         ranges = f.readline()
         ranges = ranges.split(",")
-        
-        # ranges = ranges[2:3]
         for r in ranges:
             lowerBound, upperBound = r.split("-")
             lowerBound = int(lowerBound)
@@ -26,7 +24,6 @@ def partOne(file):
                 currentHalfDigits = math.floor(math.log10(currentFirstHalf)) + 1
                 while True:
                     current = int(currentFirstHalf*(10**(currentHalfDigits)) + currentFirstHalf)
-                    print(current)
                     if lowerBound <= current and current <= upperBound:
                         sum += current
                     if current > upperBound:
@@ -36,8 +33,6 @@ def partOne(file):
             else:
                 currentFirstHalf = 10**math.ceil(lowerDigits//2)
                 currentHalfDigits = math.floor(math.log10(currentFirstHalf)) + 1
-                print(currentFirstHalf)
-                print(currentHalfDigits)
                 while True:
                     current = int(currentFirstHalf*(10**(currentHalfDigits)) + currentFirstHalf)
                     if lowerBound <= current and current <= upperBound:
