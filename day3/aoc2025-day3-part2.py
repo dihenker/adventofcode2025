@@ -6,6 +6,7 @@
 
 def partTwo(file):
     total = 0
+    numBatteries = 12 # change to '2' and it also solves part 1
 
     with open(file) as f:
         for bank in f:
@@ -14,17 +15,17 @@ def partTwo(file):
 
             currentTotal = 0
             prevMaxDigitIndex = 0
-            for d in range(12):
-                d = 11 - d # reverse from 11 to 0
+            for d in range(numBatteries):
+                d = numBatteries - 1 - d # reverse from 11 to 0
                 maxDigit = 0 
 
                 # from prev selected digit index to just before remaining number of digits
                 # e.g. third digit, need at least 9 digits left over to use
-                for i in range(prevMaxDigitIndex, bankLen-d):
+                for i in range(prevMaxDigitIndex, bankLen-d): # searchable window
                     batteryInt = int(bank[i])
                     # taking max from available set (i.e. prevMaxDigitIndex to bankLen-d)
                     if batteryInt > maxDigit:
-                        maxDigit = batteryInt
+                        maxDigit = batteryInt # TECHNICALLY, IF 9, THEN BREAK SINCE MAX
                         prevMaxDigitIndex = i + 1 # plus 1 for start of sublist for next digit search
                 
                 currentTotal = currentTotal * 10 + maxDigit

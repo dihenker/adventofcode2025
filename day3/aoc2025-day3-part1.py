@@ -1,7 +1,6 @@
 # adventofcode 2025 day 3 part 1
 
 def partOne(file):
-
     maxes = []
 
     with open(file) as f:
