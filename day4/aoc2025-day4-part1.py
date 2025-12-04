@@ -34,9 +34,9 @@ def partOne(file):
 
             numAdjacent = 0
             for i, j in directions:
-                if 0 <= n+i and n+i < numCols \
-                    and 0 <= m+j and m+j < numRows:
-                    if grid[m+j][n+i] == "@":
+                if 0 <= m+i and m+i < numRows \
+                    and 0 <= n+j and n+j < numCols:
+                    if grid[m+i][n+j] == "@":
                         numAdjacent += 1
 
                     if numAdjacent >= 4:
@@ -46,8 +46,5 @@ def partOne(file):
                 accessible += 1
     
     return accessible
-
-
-    
 
 print(partOne("input.txt"))
